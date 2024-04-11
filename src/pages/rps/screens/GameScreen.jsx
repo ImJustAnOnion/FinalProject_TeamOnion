@@ -9,20 +9,16 @@ const GameScreen = ({name}) => {
   const [ userScore, setUserScore ] = useState(0);
   const [ cpuScore, setCpuScore ] = useState(0);
   const [ history, setHistory ] = useState([]);    
-
-  const updateScoreAndHistory = () => {
-    // setScore({...game.score});
+  
+  //condensed this to match my og react-rps - L
+  const onGoButtonClick = () => {
+    game.play(selection);
     setUserScore(game.score.user)
     setCpuScore(game.score.cpu)
     setHistory([...game.gameHistoryLog]);
   }
-  
-  const onGoButtonClick = () => {
-    game.play(selection);
-    console.log(game.score);
-    updateScoreAndHistory();
-  }
 
+  //never coded this bit so im keeping it - L
   const onResetGameButtonClick = () => {
     console.log(`Reset button was clicked`);
     setGame(new RockPaperScissors(name));
@@ -32,6 +28,7 @@ const GameScreen = ({name}) => {
     setHistory([]);
   }
 
+  //seemed unnecessary to change most of this if its basically the same - L
   return (
     <div id="game-screen">
       <div id="score-tally">
@@ -67,8 +64,8 @@ const GameScreen = ({name}) => {
 
       <div id="game-history">
         <ul>
-          {history.map((round, index) => (
-            <li key={index}>{round}</li>
+          {history.map((historyItem, index) => (
+            <li key={index}>{historyItem}</li>
           ))}
         </ul>
       </div>

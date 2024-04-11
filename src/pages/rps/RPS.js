@@ -8,64 +8,47 @@ export class RockPaperScissors {
     this.gameHistoryLog = [];
   }
 
-  /**
-   * RETURN: one of the following values (`rock`, `paper`, `scissors`)
-   * using Math.random() method, you should be able to get one of the following values
-   */
+  //my own logic - L
   generateCPUResponse(){
     const acceptedValues = [ `rock`, `paper`, `scissors` ];
-    const randomIndexNumber = Math.floor(Math.random() * 3); 
-
-    return acceptedValues[randomIndexNumber];
+    const randNum = Math.floor(Math.random() * 3);
+    return acceptedValues.at(randNum);
   }
-  /**
-   * returns one of the following values: `win`, `lose`, `tie`
-   * tie:
-   *     the user selection the same as the CPU
-   * win: 
-   *    (user is `rock` and cpu is `scissors
-   *     OR
-   *    (user is `paper` and cpu is `rock`) 
-   *     OR 
-   *    (user is `scissors` and cpu is `paper`)
-   * `lose`:
-   *    the opposite case :)
-   * @param {string} userSelection user selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
-   * @param {string} cpuSelection computer selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
-   */
+  
+  //my own logic - L
   determineWinner(userSelection, cpuSelection){
-    if (userSelection === cpuSelection) { 
-      return `tie`; 
+    if (userSelection == cpuSelection){
+      return `tie`;
     }
-    else if(
-      (userSelection === `paper` && cpuSelection === `rock`) || 
-      (userSelection === `scissors` && cpuSelection === `paper`) || 
-      (userSelection === `rock` && cpuSelection === `scissors`)
-    ) { 
-      return `win`; 
+    else if (userSelection == `rock` && cpuSelection == `scissors` || 
+      userSelection == `paper` && cpuSelection == `rock` ||
+      userSelection == `scissors` && cpuSelection == `paper`){
+      return `win`;
     }
-    else { 
-      return `lose`; 
+    else{
+      return `lose`;
     }
   }
 
-  /**
-   * 
-   * @param {string} userSelection user selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
-   */
+  //my own logic - L
   play(userSelection){
-    const cpuSelection = this.generateCPUResponse(); 
-    const results = this.determineWinner(userSelection, cpuSelection); 
-    
-    if(results === `win`) { 
-      this.score.user++; 
+    let cpuResponse = this.generateCPUResponse();
+    let whoWon = this.determineWinner(userSelection, cpuResponse);
+    let winner = ``;
+
+    if (whoWon == `win`){
+      this.score.user ++;
+      winner = `${this.username} wins wins`
     }
-    if(results === `lose`) { 
-      this.score.cpu++; 
+    else if (whoWon == 'lose'){
+      this.score.cpu ++;
+      winner = `CPU wins wins`
+    }
+    else{
+      winner = `It's a tie`
     }
 
-    this.gameHistoryLog.push(` ${this.username} selected ${userSelection}. CPU selected ${cpuSelection}: ${this.username} ${results}s`);
-
+    this.gameHistoryLog.push(`${this.username} selected ${userSelection}, CPU selected ${cpuResponse}: ${winner}`)
   }
 
 }

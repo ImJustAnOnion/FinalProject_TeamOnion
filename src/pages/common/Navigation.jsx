@@ -5,14 +5,14 @@ const Navigation = () => {
         <div>
             <div id="NavBar">
                 <nav>
-                    <ul>
-                        <li>
+                    <ul id="NavItems">
+                        <li id="NavItem">
                             <Link to="/">Home Page</Link>
                         </li>
-                        <li>
+                        <li id="NavItem">
                             <Link to="/rps">Rock Paper Scissors</Link>
                         </li>
-                        <li>
+                        <li id="NavItem">
                             <Link to="/tictactoe">Tic Tac Toe</Link>
                         </li>
                     </ul>

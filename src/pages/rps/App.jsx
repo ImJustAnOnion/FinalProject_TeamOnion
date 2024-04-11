@@ -3,6 +3,7 @@ import './App.css'
 import { WelcomeScreen as Welcome } from './screens/WelcomeScreen'
 import Game from './screens/GameScreen'
 
+//kept this from gamehub because the one form my RPS broke the navigation - L
 function App() {
   const [name, setName] = useState(`Bearcat`)
   const [gameStarted, setGameStarted] = useState(false)

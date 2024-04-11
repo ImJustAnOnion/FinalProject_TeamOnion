@@ -54,7 +54,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-ul {
+#NavItems {
   list-style-type: none;
   display: flex;
   flex-direction: row;
@@ -63,10 +63,10 @@ ul {
   padding: 0;
 }
 
-li {
+#NavItem {
   margin: 20px;
   padding: 0;
-}
+} 
 
 #NavBar {
   position: fixed;
