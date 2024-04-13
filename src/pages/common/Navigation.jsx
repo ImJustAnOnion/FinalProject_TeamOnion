@@ -21,7 +21,7 @@ const Navigation = () => {
             <main>
                 <Outlet />
             </main>
-            <footer>coded by connellc@mail.uc.edu</footer>
+            <footer>Coded by Lai Connelly, Ainsley Smith, & Eric Atkins</footer>
         </div>
     );
 };
