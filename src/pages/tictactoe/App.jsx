@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Board from './Board';
+import './App.css'
 
 export default function Game() {
     const [xIsNext, setXIsNext] = useState(true);
