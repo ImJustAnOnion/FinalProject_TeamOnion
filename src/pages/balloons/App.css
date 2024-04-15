@@ -17,7 +17,6 @@
 }
 
 body {
-    font: 1em/1.5 "Balsamiq Sans", sans-serif;
     background-color: var(--pri-color);
     color: var(--sec-color);
     margin: 0;
