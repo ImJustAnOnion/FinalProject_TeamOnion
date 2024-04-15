@@ -3,8 +3,8 @@ import './Title.css';
 export default function Title() {
     return (
         <div className="title">
-            <h1><span className="first-part">Colour </span>
-                <span className="second-part">Memo</span></h1>
+            <h4>(Ainsley)</h4>
+            <h1>Memory Game</h1>
         </div>
     )
 }
