@@ -8,6 +8,8 @@ const HomePage = () => {
             <ul id="HomepageNav">
                 <li><Link to="/rps">Rock Paper Scissors</Link></li>
                 <li><Link to="/tictactoe">Tic Tac Toe</Link></li>
+                <Link to="/balloons">Balloon Pop</Link>
+                <Link to="/memory">Memory Game</Link>
             </ul>
         </div>
     );
