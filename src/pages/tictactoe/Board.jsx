@@ -1,6 +1,8 @@
 import { useState } from "react";
 import './App.css'
 
+//Tic Tac Toe React Tutorial: https://react.dev/learn/tutorial-tic-tac-toe
+
 //Not that complex, best to keep this one. - L
 function Square({ value, onSquareClick }) {
     return (
@@ -10,7 +12,7 @@ function Square({ value, onSquareClick }) {
     );
 }
 
-//As to not "copy" everything, I did it the long way - L
+//As to not "copy" everything, I did it the long way lol. - L
 function calculateWinner(squares) {
     if (squares[0] && squares[0] === squares[1] && squares[0] === squares[2]) {
         return squares[0];
