@@ -7,6 +7,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import Navigation from './pages/common/Navigation'
 import ErrorPage from './pages/ErrorPage'
+import Balloons from './pages/balloons/App'
+import Memory from './pages/memory/App'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
         path: "/tictactoe",
         element: <TicTacToe />
       },
+      {
+        path: "/balloons",
+        element: <Balloons />
+      },
+      {
+        path: "/memory",
+        element: <Memory />
+      }
     ],
   },
 ], { basename: import.meta.env.BASE_URL});
