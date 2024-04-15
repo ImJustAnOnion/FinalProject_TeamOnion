@@ -4,7 +4,6 @@ import CoverScreen from "../CoverScreen/CoverScreen";
 import ScoreCard from "../ScoreCard/ScoreCard";
 import { CSSTransition } from "//cdn.skypack.dev/react-transition-group";
 import Constants from "../Constants";
-import Toast from "../Toast/Toast";
 import Button from "../Button/Button";
 import "./Game.css";
 
@@ -98,7 +97,6 @@ const Game = ({ numberOfBalloons, gameDuration }) => {
             </div>
         )}
         </CSSTransition>
-        <Toast message={"+1 hits"} trigger={hit} />
         </div>
     );
 };

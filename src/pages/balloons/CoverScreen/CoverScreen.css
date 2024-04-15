@@ -19,3 +19,7 @@
 .description {
     color: var(--sec-color-light);
 }
+
+h4 {
+    color: grey
+}

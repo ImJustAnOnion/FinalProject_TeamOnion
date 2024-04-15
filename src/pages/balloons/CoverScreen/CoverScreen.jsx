@@ -3,6 +3,7 @@ import "./CoverScreen.css";
 
 const CoverScreen = ({ score, onStartGame, duration }) => (
     <div className="intro">
+        <h4>(Ainsley)</h4>
         <h1 className="title">{score > -1 ? "Game over!" : "Pop-a-balloon! 🎈"}</h1>
         {score > -1 ? (
         <p className="description">
@@ -12,7 +13,7 @@ const CoverScreen = ({ score, onStartGame, duration }) => (
         </p>
         ) : (
         <p className="description">
-            A small &amp; simple {duration}-second balloon game built with React.
+            A simple {duration}-second balloon game.
             Find the tutorial <a href="https://blog.logrocket.com/using-react-web-games/#constructing-helper-components">here.</a>
         </p>
         )}
