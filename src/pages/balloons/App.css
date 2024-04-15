@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap");
+:root {
+    --hue: 200;
+
+    --pri-color-dark: hsl(var(--hue) 75% 75%);
+    --pri-color-light: hsl(var(--hue) 96% 96%);
+
+
+
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font: 1em/1.5 "Balsamiq Sans", sans-serif;
+    background-color: var(--pri-color);
+    color: var(--sec-color);
+    margin: 0;
+}
+
+input,
+button,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+img,
+svg {
+    vertical-align: middle;
+}
+
+p {
+    margin: 0;
+}
+
+p + p {
+    margin-top: 1.5em;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
