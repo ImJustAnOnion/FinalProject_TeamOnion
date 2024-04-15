@@ -77,6 +77,10 @@ button:focus-visible {
   background-color: #e9d2ff;
 }
 
+#HomepageNav {
+  list-style-type: none;
+}
+
 footer {
   position: fixed;
   bottom: 0;
