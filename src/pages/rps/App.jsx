@@ -2,8 +2,9 @@ import { useState } from 'react'
 import './App.css'
 import { WelcomeScreen as Welcome } from './screens/WelcomeScreen'
 import Game from './screens/GameScreen'
+import HomePage from '../HomePage'
 
-//kept this from gamehub because the one form my RPS broke the navigation - L
+//Kept this from gamehub because the one from my og react-RPS broke the navigation. - L
 function App() {
   const [name, setName] = useState(`Bearcat`)
   const [gameStarted, setGameStarted] = useState(false)

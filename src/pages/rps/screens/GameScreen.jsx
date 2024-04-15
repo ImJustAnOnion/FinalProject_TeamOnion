@@ -5,12 +5,11 @@ import { RockPaperScissors } from '../RPS';
 const GameScreen = ({name}) => {
   const [ game, setGame ] = useState(new RockPaperScissors(name));
   const [ selection, setSelection ] = useState(`rock`);
-  // const [ score, setScore ] = useState({user: 0, cpu: 0});
   const [ userScore, setUserScore ] = useState(0);
   const [ cpuScore, setCpuScore ] = useState(0);
   const [ history, setHistory ] = useState([]);    
   
-  //condensed this to match my og react-rps - L
+  //Condensed this to match my og react-rps. - L
   const onGoButtonClick = () => {
     game.play(selection);
     setUserScore(game.score.user)
@@ -18,17 +17,16 @@ const GameScreen = ({name}) => {
     setHistory([...game.gameHistoryLog]);
   }
 
-  //never coded this bit so im keeping it - L
+  //Never coded this bit so I'm keeping it from the gamehub assignment. - L
   const onResetGameButtonClick = () => {
     console.log(`Reset button was clicked`);
     setGame(new RockPaperScissors(name));
-    // setScore({user: 0, cpu: 0});
     setUserScore(0)
     setCpuScore(0)
     setHistory([]);
   }
 
-  //seemed unnecessary to change most of this if its basically the same - L
+  //seemed unnecessary to change most of this if it's basically the same. - L
   return (
     <div id="game-screen">
       <div id="score-tally">

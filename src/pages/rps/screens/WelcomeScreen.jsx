@@ -35,6 +35,8 @@ export const WelcomeScreen = ({ name, onNameChange, onGameStart }) => {
     </div>
   );
 };
+
+//I didn't have this in my OG react-rps but it seems necessary so I'm keeping it - L
 WelcomeScreen.propTypes = {
   name: PropTypes.string.isRequired,
   onNameChange: PropTypes.func.isRequired,

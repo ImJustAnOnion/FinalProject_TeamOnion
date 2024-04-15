@@ -8,6 +8,7 @@ export default function Game() {
     const [currentMove, setCurrentMove] = useState(0);
     const currentSquares = history[currentMove];
 
+    //From react tutorial - L
     function handlePlay(nextSquares){
         const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
         setHistory(nextHistory);
@@ -15,25 +16,29 @@ export default function Game() {
         setXIsNext(!xIsNext);
     }
 
+    //From react tutorial - L
     function jumpTo(nextMove) {
         setCurrentMove(nextMove);
         setXIsNext(nextMove % 2 === 0);
     }
 
+    //Minor edits from react tutorial, not much I can change because it's so simple already - L
     const moves = history.map((squares, move) => {
-        let description;
         if (move > 0) {
-            description = 'Go to move #' + move;
-        } else {
-            description = 'Go to game start';
-        }
-        return (
+            return (
             <li key={move}>
-                <button onClick={() => jumpTo(move)}>{description}</button>
-            </li>
-        );
+                <button onClick={() => jumpTo(move)}>{'Go to move #' + move}</button>
+            </li>);
+        } 
+        else {
+            return (
+            <li key={move}>
+                <button onClick={() => jumpTo(move)}>{'Reset the game'}</button>
+            </li>);
+        }
     });
 
+    //Had to separate board.jsx from app.jsx this part would work properly. - L
     return (
         <div>
             <div className='game-board'>
