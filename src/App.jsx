@@ -1,20 +1,14 @@
-import reactLogo from './assets/react.svg'
+import MenuBar  from './components/MenuBar'
+import Game from './components/Game'
 import './App.css'
 
 function App() {
   return (
-    <>
-      <div>
-          <img src={reactLogo} className="logo react" alt="React logo" />
-      </div>
-      <h1>IT3049C</h1>
-      <div className="card">
-        <p>
-        Edit <code>src/App.jsx</code> and save to update this view.
-        </p>
-      </div>
-    </>
+    <div id="app" className='flex h-screen w-screen flex-col items-center justify-center'>
+      <MenuBar />
+      <Game word={'tests'} guess={'guess'} win={false}/>
+    </div>
   )
 }
 
-export default App
+export default App;
