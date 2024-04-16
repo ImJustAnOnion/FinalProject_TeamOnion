@@ -237,7 +237,8 @@ export default function Grid() {
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
         };
-    }, [], gameState.currentGuess, gameState.currentAttempt, gameState.currentPosition]);
+    } 
+}, [gameState.currentGuess, gameState.currentAttempt, gameState.currentPosition]);
     
     return (
         <div id="grid">{cells}</div>
