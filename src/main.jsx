@@ -9,6 +9,7 @@ import Navigation from './pages/common/Navigation'
 import ErrorPage from './pages/ErrorPage'
 import Balloons from './pages/balloons/App'
 import Memory from './pages/memory/App'
+import Wordle from './pages/wordle/App' 
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/tictactoe",
         element: <TicTacToe />
+      },
+      {
+        path: "/wordle",
+        element: <Wordle />
       },
       {
         path: "/balloons",
