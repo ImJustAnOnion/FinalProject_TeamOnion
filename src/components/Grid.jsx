@@ -31,11 +31,9 @@ async function getRandomWord() {
 
 function checkWord(word, guess) {
     const results = [];
-    guess.split('').forEach((letter, index) => {
-        if (word.includes(letter) && word[index] !== letter) {
-            console.log('Letter is in the wrong position');
-            results.push(`misplaced`);
-        }
+    guess.split(``).forEach((letter, index) => {
+        console.log(word[index], letter);
+        console.log(guess)
         if (word[index] === letter) {
             console.log('Letter is in the right position');
             results.push(`correct`);
@@ -44,6 +42,13 @@ function checkWord(word, guess) {
             console.log('Letter is not in the word');
             results.push(`wrong`);
         }
+        if (word.includes(letter) && word[index] !== letter){
+            console.log('Letter is in the wrong position');
+            results.push(`misplaced`);
+        }
+        
+        
+        
     });
 
     return results;
@@ -57,7 +62,9 @@ async function isValidWord(word){
 }
 
 function revealAttemptResult() {
+    console.log(gameConfig.word, gameState.currentGuess);
     const results = checkWord(gameConfig.word, gameState.currentGuess);
+    console.log(gameConfig.word, gameState.currentGuess, results)
     results.forEach((result, index) => {
         const cell = document.getElementById(
             `${gameState.currentAttempt}-${index}`
@@ -97,6 +104,7 @@ export default function Grid() {
     useEffect(() => {
         const fetchData = async () => {
             gameConfig.word = await getRandomWord();
+            console.log(gameConfig.word);
             const gridCells = [];
             for (let row = 0; row < gameConfig.rows; row++) {
                 for (let col = 0; col < gameConfig.cols; col++) {
