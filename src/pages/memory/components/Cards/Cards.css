@@ -1,0 +1,33 @@
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1000px;
+    margin-bottom: 0px;
+}
+
+#cards .card {
+    border-style: solid;
+    border-color: #fff;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+#cards .card .color {
+    flex: 1;
+    background-color: #26F786;
+
+}
+
+#cards .card .color-text {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    background-color: #FFF;
+    color: red;
+}

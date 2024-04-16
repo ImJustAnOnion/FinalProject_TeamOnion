@@ -1,0 +1,107 @@
+:root {
+  --primary-color: #2d2d2d;
+  --secondary-color: whitesmoke;
+  --wrong-color: #424949;
+  --misplaced-color: #F4D03F;
+  --correct-color: #2ECC71;
+  --border-color: #5F6A6A;
+  --text-color: #2d2d2d;
+  --accent-color: purple;
+}
+
+[data-theme="light"]{
+  transition: all 1s ease;
+  --primary-color: whitesmoke;
+  --secondary-color: #2d2d2d;
+  --wrong-color: #424949;
+  --misplaced-color: #F4D03F;
+  --correct-color: #2ECC71;
+  --border-color: #5F6A6A;
+  --accent-color: purple;
+}
+
+#root {
+  transition: all 1s ease;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  padding: 1em;
+  justify-content: center;
+}
+
+#option-bar{
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+
+#grid {
+  width: 33%;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(5, auto);
+  gap: 1em;
+}
+
+
+.cell {
+  border: 0.06em solid var(--border-color);
+  height: 2em;
+  width: 2em;
+  font-weight: bold;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  font-size: 2.4em;
+  color: var(--secondary-color)
+}
+
+.correct {
+  background-color: var(--correct-color);
+  color: var(--text-color)
+}
+
+.wrong {
+  background-color: var(--wrong-color);
+  color: var(--text-color)
+}
+
+.misplaced {
+  background-color: var(--misplaced-color);
+  color: var(--text-color)
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-family: inherit;
+  background-color: var(--wrong-color);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: var(--accent-color);
+}
