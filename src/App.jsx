@@ -1,20 +1,22 @@
-import reactLogo from './assets/react.svg'
-import './App.css'
+import Grid from './components/Grid'; 
+import Button from './components/Button';
+import './App.css';
 
-function App() {
+
+export default function App() {
+
+
   return (
-    <>
-      <div>
-          <img src={reactLogo} className="logo react" alt="React logo" />
+    <div id="app" className='w-screen'>
+      <header>
+          <h1 className='uppercase font-bold tracking-widest'>Wordle</h1>
+          <div id="option-bar">
+              <Button />
+          </div>
+      </header>
+      <div id="game">
+        <Grid />
       </div>
-      <h1>IT3049C</h1>
-      <div className="card">
-        <p>
-        Edit <code>src/App.jsx</code> and save to update this view.
-        </p>
-      </div>
-    </>
-  )
+    </div>
+  );
 }
-
-export default App
