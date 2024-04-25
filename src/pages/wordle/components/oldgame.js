@@ -1,9 +1,4 @@
-export async function isValidWord(word){
-    const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
-    .then((response) => response.json());
-    console.log(Array.isArray(response) && response.length > 0);
-    return Array.isArray(response) && response.length > 0;
-}
+
 
 export function checkWord(word, guess) {
     const results = [];
