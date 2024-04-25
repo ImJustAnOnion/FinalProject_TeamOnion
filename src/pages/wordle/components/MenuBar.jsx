@@ -1,22 +1,25 @@
 //import { useEffect } from 'react';
 import Button from './Button';
-import { game } from '../data/game';
+import PropTypes from 'prop-types';
 
-const MenuBar = () => {
-
-
+const MenuBar = ({ solution, currentGuess }) => {
 
 
 
     return (
         <div className="menu-bar flex">
-                <h1 className="uppercase font-bold">Wordle</h1>
+                <h1 className='uppercase font-bold tracking-widest'>Wordle</h1>
                 <Button />
-                <h3>The word is:{game.currentGuess}</h3>
+                <h3>The word is:{solution}</h3>
+                <h3>Your guess is:{currentGuess}</h3>
         </div>
     );
 
 
 }
 
+MenuBar.propTypes = {
+    solution: PropTypes.string.isRequired,
+    currentGuess: PropTypes.string.isRequired
+}
 export default MenuBar;

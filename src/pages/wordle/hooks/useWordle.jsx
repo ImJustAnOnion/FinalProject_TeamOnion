@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { game } from '../data/game';
 
 const useWordle = (solution) => {
 
     const [attempt, setAttempt] = useState(0);
     const [currentGuess, setCurrentGuess] = useState("");
-    const [guesses, setGuesses] = useState([...Array(game.cols)]);
+    const [guesses, setGuesses] = useState([...Array(6)]);
     const [history, setHistory] = useState([]);
     const [isCorrect, setIsCorrect] = useState(false);
 

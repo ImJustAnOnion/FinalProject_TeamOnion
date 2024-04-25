@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
+//components
 import MenuBar from './MenuBar';
 import Grid from './Grid';
+
 import useWordle from '../hooks/useWordle';
 import PropTypes from 'prop-types';
 
@@ -23,9 +25,8 @@ export default function Wordle({ solution }) {
     return (
     <div id="app" className='w-screen h-screen'>
       <header>
-          <h1 className='uppercase font-bold tracking-widest'>Wordle</h1>
           <div id="option-bar">
-              <MenuBar />
+              <MenuBar solution={solution} currentGuess={currentGuess}/>
               <div>word - {solution}</div>
               <div>current guess - {currentGuess}</div>
           </div>

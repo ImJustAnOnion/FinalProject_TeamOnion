@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Children } from 'react'
 import ReactDOM from 'react-dom/client'
 import RPS from '../src/pages/rps/App'
 import TicTacToe from '../src/pages/tictactoe/App'

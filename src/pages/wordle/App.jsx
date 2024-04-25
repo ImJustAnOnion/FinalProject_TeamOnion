@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import { game } from './data/game';
-import Wordle from './components/wordle';
+import Wordle from './components/Wordle';
 
 export default function App() {
   const [solution, setSolution] = useState(null);
@@ -30,9 +29,12 @@ export default function App() {
                 }
 
             } while (isValidWord);
-    }
-    game.word = fetchData();
-    setSolution(game.word);
+        }
+        const fetchDataSetSolution = async () => {
+          const word = await fetchData();
+          setSolution(word);
+        }
+        fetchDataSetSolution();
 }, [setSolution]);
 
   return (
