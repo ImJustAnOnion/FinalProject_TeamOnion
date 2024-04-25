@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Row from './Row.jsx';
 import PropTypes from 'prop-types';
 
-export default function Grid({ currentGuess }) {
+export default function Grid({ currentGuess}) {
     
     useEffect(() => {
 

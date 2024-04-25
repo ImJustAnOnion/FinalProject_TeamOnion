@@ -5,7 +5,6 @@ const useWordle = (solution) => {
 
     const [attempt, setAttempt] = useState(0);
     const [currentGuess, setCurrentGuess] = useState("");
-    const [isWord, setIsWord] = useState(false);
     const [guesses, setGuesses] = useState([...Array(game.cols)]);
     const [history, setHistory] = useState([]);
     const [isCorrect, setIsCorrect] = useState(false);
@@ -31,6 +30,12 @@ const useWordle = (solution) => {
 
         return guessArray;
     }
+    const isValidWord = async (word) => {
+        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+        const data = await response.json();
+        console.log(Array.isArray(data) && data.length > 0);
+        return Array.isArray(data) && data.length > 0;
+    }
 
     const addGuess = ( guessArray ) => {
 
@@ -47,8 +52,7 @@ const useWordle = (solution) => {
     })
     setAttempt((prev) => {  
         return prev + 1;
-    })
-}
+    })}
 
     const handleKeyup = ({key}) => {
         console.log(key);
@@ -58,14 +62,9 @@ const useWordle = (solution) => {
             setCurrentGuess((prev) => {
                 return prev.slice(0, - 1);
             })
-
             return;
         }
-
-
-
         if (key === "Enter") {
-
             if (attempt < 5) {
                 setAttempt((prev) => {
                     return prev + 1;
@@ -80,7 +79,7 @@ const useWordle = (solution) => {
                 return;
             }
             if (currentGuess.length === 5) {
-                if (isWord){{
+                if (isValidWord(currentGuess)){
                     console.log("valid word");
                     const guess = formatGuess();
                     addGuess(guess);
@@ -89,11 +88,8 @@ const useWordle = (solution) => {
                 if (history.includes(currentGuess)) {
                 console.log("Already guessed");
                 return;
+                }
             }
-            
-            }
-            
-        }
 
         if (/^[a-zA-Z]$/.test(key)) {
             if (currentGuess.length < 5) {
@@ -102,10 +98,8 @@ const useWordle = (solution) => {
                 });
             }
         }
-
-
     }
-
+}
     return {
         attempt,
         currentGuess,
@@ -114,6 +108,6 @@ const useWordle = (solution) => {
         isCorrect,
         handleKeyup
     };
+
 }
-// Move the export statement outside of the function block
 export default useWordle;

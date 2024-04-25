@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
 import MenuBar from './MenuBar';
 import Grid from './Grid';
-import useWordle from './hooks/useWordle';
+import useWordle from '../hooks/useWordle';
 import PropTypes from 'prop-types';
 
 export default function Wordle({ solution }) {
     const { currentGuess, handleKeyup, guesses, isCorrect, attempt } = useWordle(solution);
 
     useEffect(() => {
-        window.addEventListener('keyup', handleKeyup);
+        window.addEventListener('keyup', handleKeyup)
         return () => {
-            window.removeEventListener('keyup', handleKeyup);
+            window.removeEventListener('keyup', handleKeyup)
         }
     }, [handleKeyup]);
 
@@ -18,7 +18,7 @@ export default function Wordle({ solution }) {
 
         console.log(guesses, isCorrect, attempt);
 
-    })
+    }, [guesses, isCorrect, attempt])
 
     return (
     <div id="app" className='w-screen h-screen'>
