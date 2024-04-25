@@ -10,9 +10,9 @@ export default function Wordle({ solution }) {
     const { currentGuess, handleKeyup, guesses, isCorrect, attempt } = useWordle(solution);
 
     useEffect(() => {
-        window.addEventListener('keyup', handleKeyup)
+        window.addEventListener('keyup', handleKeyup);
         return () => {
-            window.removeEventListener('keyup', handleKeyup)
+            window.removeEventListener('keyup', handleKeyup);
         }
     }, [handleKeyup]);
 

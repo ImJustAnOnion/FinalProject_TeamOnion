@@ -92,9 +92,7 @@ const useWordle = (solution) => {
 
         if (/^[a-zA-Z]$/.test(key)) {
             if (currentGuess.length < 5) {
-                setCurrentGuess((prev) => {
-                    return prev + key;
-                });
+                setCurrentGuess(prev => sprev + key );
             }
         }
     }

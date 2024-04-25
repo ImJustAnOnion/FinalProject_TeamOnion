@@ -20,48 +20,22 @@
   --accent-color: purple;
 }
 
-#root {
+
+.app {
   transition: all 1s ease;
   background-color: var(--primary-color);
   color: var(--secondary-color);
-
 }
-
-/*#app {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  padding: 0;
-  color: var(--secondary-color);
-  background-color: var(--primary-color);
-  font-family: Arial, Helvetica, sans-serif;
-}*/
 
 header {
-  padding: 1em;
+  margin-top: 2em;
   justify-content: center;
 }
 
-#option-bar{
+.menu-bar{
   text-align: center;
 }
 
-h1 {
-  text-align: center;
-}
-
-
-
-#grid {
-  width: 33%;
-  padding: 0;
-  display: grid;
-  place-items: center;
-  grid-template-columns: repeat(5, auto);
-  gap: 1em;
-}
 
 .row {
   text-align: center;

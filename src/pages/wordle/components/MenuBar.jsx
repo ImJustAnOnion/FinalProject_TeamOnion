@@ -7,7 +7,7 @@ const MenuBar = ({ solution, currentGuess }) => {
 
 
     return (
-        <div className="menu-bar flex">
+        <div className="menu-bar">
                 <h1 className='uppercase font-bold tracking-widest'>Wordle</h1>
                 <Button />
                 <h3>The word is:{solution}</h3>
