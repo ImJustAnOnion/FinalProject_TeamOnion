@@ -20,4 +20,3 @@ Grid.propTypes = {
     guesses: PropTypes.array,
     attempt: PropTypes.number
 }
-
