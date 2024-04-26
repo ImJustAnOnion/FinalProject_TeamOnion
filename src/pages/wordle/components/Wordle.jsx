@@ -17,7 +17,7 @@ export default function Wordle({ solution }) {
             window.removeEventListener('keyup', handleKeyup);
 
         }
-        if(attempt >= 5){
+        if(attempt >= 6){
             console.log("You lose!");
             window.removeEventListener('keyup', handleKeyup);
         }
