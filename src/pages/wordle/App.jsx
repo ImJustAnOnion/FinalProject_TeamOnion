@@ -38,7 +38,7 @@ export default function App() {
 }, [setSolution]);
 
   return (
-    <div className="app">
+    <div id="app">
       {solution && <Wordle solution={solution} />}
     </div>
   );

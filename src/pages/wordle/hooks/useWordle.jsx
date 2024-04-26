@@ -10,14 +10,14 @@ const useWordle = (solution) => {
 
     const formatGuess = () => {
         console.log("formatting", currentGuess);
-        let solutionArray = [...solution]
-        let guessArray = [...currentGuess].map((letter) => {
-            return { key: letter, status: 'unused'}
+        let solutionArray = [...solution];
+        let guessArray = [...currentGuess].map((i) => {
+            return { key: i, status: 'unused'}
         })
         
         guessArray.forEach((letter, i) => {
-            if (solutionArray.includes(letter)) {
-                if (solutionArray[i] === letter) {
+            if (solutionArray.includes(letter.key)) {
+                if (solutionArray[i] === letter.key) {
                     guessArray[i].status = 'correct';
                 } else {
                     guessArray[i].status = 'misplaced';
@@ -29,6 +29,7 @@ const useWordle = (solution) => {
 
         return guessArray;
     }
+
     const isValidWord = async (word) => {
         const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
         const data = await response.json();
@@ -37,64 +38,67 @@ const useWordle = (solution) => {
     }
 
     const addGuess = ( guessArray ) => {
-
-    if (currentGuess === solution) {
-        setIsCorrect(true);
+        if (currentGuess === solution) {
+            setIsCorrect(true);
+        }
+        setGuesses((prevGuess) => {
+            let newGuesses = [...prevGuess];
+            newGuesses[attempt] = guessArray;
+            return newGuesses;
+        })
+        setHistory((prevHistory) => {
+            return [...prevHistory, currentGuess];
+        })
+        setAttempt((prevAttempt) => {  
+            return prevAttempt + 1;
+        })
+        setCurrentGuess();
     }
-    setGuesses((prev) => {
-        let newGuesses = [...prev];
-        newGuesses[attempt] = guessArray;
-        return newGuesses;
-    })
-    setHistory((prev) => {
-        return [...prev, currentGuess];
-    })
-    setAttempt((prev) => {  
-        return prev + 1;
-    })}
 
-    const handleKeyup = ({key}) => {
+    const handleKeyup = async ({key}) => {
         console.log(key);
-
+        if (/^[a-zA-Z]$/.test(key)) {
+            if (currentGuess.length < 5) {
+                setCurrentGuess(prev => {
+                    return prev + key;
+                })
+            }
+        }
         if (key === "Backspace") {
-
             setCurrentGuess((prev) => {
                 return prev.slice(0, - 1);
             })
             return;
         }
         if (key === "Enter") {
-            if (attempt < 5) {
-                setAttempt((prev) => {
-                    return prev + 1;
-                })
-            }
-            if (attempt >= 5) {
-                console.log("All Guesses Used.");
-                return;
-            }
+            
             if (currentGuess.length < 5) {
                 console.log("Incomplete Guess");
                 return;
             }
             if (currentGuess.length === 5) {
-                if (isValidWord(currentGuess)){
+                if ( await isValidWord(currentGuess)){
                     console.log("valid word");
                     const guess = formatGuess();
                     addGuess(guess);
-                    console.log(guess);
+                    setCurrentGuess("");
+                    console.log(guess, attempt);
+                    if (attempt >= 5) {
+                        console.log("All Guesses Used.");
+                        return;
+                    } 
                 }
+                if (!isValidWord(currentGuess)) {
+                    console.log("Invalid word");
+                    return;
+                }  
                 if (history.includes(currentGuess)) {
                 console.log("Already guessed");
                 return;
                 }
             }
 
-        if (/^[a-zA-Z]$/.test(key)) {
-            if (currentGuess.length < 5) {
-                setCurrentGuess(prev => prev + key );
-            }
-        }
+        
     }
 }
     return {

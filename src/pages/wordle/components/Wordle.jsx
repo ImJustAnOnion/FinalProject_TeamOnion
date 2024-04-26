@@ -10,25 +10,27 @@ export default function Wordle({ solution }) {
     const { currentGuess, handleKeyup, guesses, isCorrect, attempt } = useWordle(solution);
 
     useEffect(() => {
-        window.addEventListener('keyup', handleKeyup);
-        return () => {
+        window.addEventListener('keyup', handleKeyup)
+
+        if(isCorrect){
+            console.log("You win!");
+            window.removeEventListener('keyup', handleKeyup);
+
+        }
+        if(attempt >= 5){
+            console.log("You lose!");
             window.removeEventListener('keyup', handleKeyup);
         }
-    }, [handleKeyup]);
 
-    useEffect(() => {
 
-        console.log(guesses, isCorrect, attempt);
-
-    }, [guesses, isCorrect, attempt])
+        return () => window.removeEventListener('keyup', handleKeyup);
+    }, [handleKeyup, isCorrect, attempt]);
 
     return (
-    <div id="app" className='w-screen h-screen'>
+    <div id="wordle">
       <header>
           <div id="option-bar">
-              <MenuBar solution={solution} currentGuess={currentGuess}/>
-              <div>word - {solution}</div>
-              <div>current guess - {currentGuess}</div>
+              <MenuBar solution={solution} currentGuess={currentGuess} isCorrect={isCorrect} attempt={attempt}/>
           </div>
       </header>
       <div id="game">

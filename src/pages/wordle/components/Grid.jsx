@@ -16,8 +16,8 @@ export default function Grid({ currentGuess, guesses, attempt }) {
 }
 
 Grid.propTypes = {
-    currentGuess: PropTypes.string.isRequired,
-    guesses: PropTypes.array.isRequired,
-    attempt: PropTypes.number.isRequired
+    currentGuess: PropTypes.string,
+    guesses: PropTypes.array,
+    attempt: PropTypes.number
 }
 

@@ -1,8 +1,8 @@
-//import { useEffect } from 'react';
 import Button from './Button';
 import PropTypes from 'prop-types';
+import WinLose from './winlose';
 
-const MenuBar = ({ solution, currentGuess }) => {
+const MenuBar = ({ solution, isCorrect, attempt }) => {
 
 
 
@@ -10,8 +10,8 @@ const MenuBar = ({ solution, currentGuess }) => {
         <div className="menu-bar">
                 <h1 className='uppercase font-bold tracking-widest'>Wordle</h1>
                 <Button />
-                <h3>The word is:{solution}</h3>
-                <h3>Your guess is:{currentGuess}</h3>
+                <h3>The word is: {solution}</h3>
+                <WinLose isCorrect={isCorrect} attempt={attempt}/>
         </div>
     );
 
@@ -20,6 +20,9 @@ const MenuBar = ({ solution, currentGuess }) => {
 
 MenuBar.propTypes = {
     solution: PropTypes.string.isRequired,
-    currentGuess: PropTypes.string.isRequired
+    currentGuess: PropTypes.string,
+    isCorrect: PropTypes.bool,
+    attempt: PropTypes.number
+
 }
 export default MenuBar;
