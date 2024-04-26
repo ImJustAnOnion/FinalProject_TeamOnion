@@ -83,7 +83,7 @@ const useWordle = (solution) => {
                     addGuess(guess);
                     setCurrentGuess("");
                     console.log(guess, attempt);
-                    if (attempt >= 5) {
+                    if (attempt >= 6) {
                         console.log("All Guesses Used.");
                         return;
                     } 
