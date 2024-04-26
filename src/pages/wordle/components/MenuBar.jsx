@@ -1,6 +1,6 @@
 import Button from './Button';
 import PropTypes from 'prop-types';
-import WinLose from './winlose';
+import WinLose from './Winlose';
 
 const MenuBar = ({ solution, isCorrect, attempt }) => {
 
