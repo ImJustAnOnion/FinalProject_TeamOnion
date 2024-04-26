@@ -8,7 +8,7 @@ export default function WinLose({ isCorrect, attempt }) {
             </div>
         );
     }
-    if (attempt >= 5) {
+    if (attempt >= 6) {
         return (
             <div id="lose">
             <h2>You Lose!</h2>
